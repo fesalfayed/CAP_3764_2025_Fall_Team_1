@@ -1,0 +1,24 @@
+### List GitHub Repositories
+GET https://api.github.com/user/repos
+Authorization: token {{$dotenv GITHUB_TOKEN}}
+Accept: application/vnd.github.v3+json
+
+### List GitHub Repositories (with pagination - first 30 repos)
+GET https://api.github.com/user/repos?per_page=30&page=1
+Authorization: token YOUR_GITHUB_TOKEN_HERE
+Accept: application/vnd.github.v3+json
+
+### List GitHub Repositories (only public repos)
+GET https://api.github.com/user/repos?visibility=public
+Authorization: token YOUR_GITHUB_TOKEN_HERE
+Accept: application/vnd.github.v3+json
+
+### List GitHub Repositories (only private repos)
+GET https://api.github.com/user/repos?visibility=private
+Authorization: token YOUR_GITHUB_TOKEN_HERE
+Accept: application/vnd.github.v3+json
+
+### List GitHub Repositories (sorted by creation date, newest first)
+GET https://api.github.com/user/repos?sort=created&direction=desc
+Authorization: token YOUR_GITHUB_TOKEN_HERE
+Accept: application/vnd.github.v3+json
