@@ -158,7 +158,8 @@ Phase 3 - Modeling (coming soon):
 
 ## Team
 
-[Add names here]
+- Fesal Fayed
+- Maksim Paklov
 
 ## Timeline
 
