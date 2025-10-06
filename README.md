@@ -161,13 +161,6 @@ Phase 3 - Modeling (coming soon):
 - Fesal Fayed
 - Maksim Paklov
 
-## Timeline
-
-Week 1-2: Data collection and cleaning (done)
-Week 3-4: EDA (working on it)
-Week 5-6: Feature engineering and models
-Week 7-8: Model testing
-Week 9-10: Final report and presentation
 
 ## Initial Observations
 
