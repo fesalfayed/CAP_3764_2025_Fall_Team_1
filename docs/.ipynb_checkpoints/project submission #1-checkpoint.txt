@@ -1,0 +1,107 @@
+Final Project – 1st Submission
+
+ 
+
+Goal: Gain a practical understanding of GitHub, Jupyter Lab, conda environments, data collection, functions/modules/packages, and data wrangling.
+
+Tasks:
+
+Create the team repo in GitHub and clone it in Jupyter Lab:
+Create new branches for each task.
+Commit, Push, and Pull your changes properly.
+Pull requests to merge your branches with your main branch.
+Create your conda environment and your environment.yml file.
+Data collection:
+Obtain a relevant dataset with numerical and categorical variables.
+Create a function/module/package for your data collection.
+Perform initial data cleaning (missing values, duplicate rows, convert variables, etc.)
+Initial Exploratory Data Analysis (EDA):
+Compute summary statistics for the numerical variables.
+Perform analysis on categorical variables.
+Create relevant summary tables.
+Create some relevant visualizations (static or interactive).
+Submission:
+
+Link to a YouTube[1] video with a 10-minute recording describing how you performed the tasks and some preliminary insights from the dataset. A deck is highly recommended to drive the recording. The deck should include information on the dataset (variables, time span, source, etc.), the project topic and goal, preliminary insights, and other relevant details.
+The GitHub team repo will be reviewed to ensure that all GitHub-related tasks are fulfilled.
+ 
+
+ 
+
+[1] If you have never uploaded a video to YouTube, there are many videos on YouTube explaining how to do it.
+
+Rubric
+Final Project 1st Submission
+Final Project 1st Submission
+Criteria	Ratings	Pts
+This criterion is linked to a Learning OutcomeGitHub & Collaboration
+50 pts
+Exceeds Expectations
+• Repo has clear structure (README, folders). • Branches used consistently per task. • Pull requests with meaningful review notes.
+43 pts
+Meets Expectations
+• Repo and branches created. • Commits mostly clear. • Pull requests completed, but with minimal detail.
+39 pts
+Approaching Expectations
+• Repo exists, but branch usage is inconsistent. • Commit messages are vague. • Pull requests are incomplete or irregular.
+30 pts
+Below Expectations
+• Repo disorganized. • No branch management. • Work appears individual, not collaborative.
+50 pts
+This criterion is linked to a Learning OutcomeConda Environment
+20 pts
+Exceeds Expectations
+• Environment created and tested. • environment.yml includes all dependencies. • Reproducibility verified on another machine.
+17 pts
+Meets Expectations
+• Environment functional. • environment.yml is mostly complete. • Works with minor adjustments.
+15 pts
+Approaching Expectations
+• Environment runs but is unstable. • environment.yml is missing key packages. • Poor documentation of setup.
+12 pts
+Below Expectations
+• No custom environment. • No environment.yml provided. • Work only in the base environment.
+20 pts
+This criterion is linked to a Learning OutcomeData Collection & Preparation
+40 pts
+Exceeds Expectations
+• Dataset contains both numerical & categorical variables. • Function/module/package automates collection. • Cleaning addresses missing values, duplicates, and conversions.
+34 pts
+Meets Expectations
+• Dataset meets minimum requirements. • Function/module/package exists but is simple. • Cleaning partially addresses issues.
+30 pts
+Approaching Expectations
+• Dataset partially relevant. • Data collection done manually. • Cleaning is minimal/inconsistent.
+24 pts
+Below Expectations
+• Dataset irrelevant or too limited. • No modular code. • No cleaning applied.
+40 pts
+This criterion is linked to a Learning OutcomeEDA
+50 pts
+Exceeds Expectations
+• Summary statistics for all numerical variables. • Clear analysis of categorical distributions. • Multiple visualizations with insights.
+43 pts
+Meets Expectations
+• Basic stats for numerical variables. • Some analysis of categorical variables. • At least one relevant visualization created.
+39 pts
+Approaching Expectations
+• Limited stats for a subset of variables. • Weak analysis of categorical variables. • Few/basic visualizations.
+30 pts
+Below Expectations
+• No meaningful stats or analysis. • No tables or visualizations. • No insights drawn.
+50 pts
+This criterion is linked to a Learning OutcomePresentation & Communication
+40 pts
+Exceeds Expectations
+• The 10-minute video is clear and professional. • Deck includes the dataset, goals, and insights details. • Demonstrates workflow and findings.
+34 pts
+Meets Expectations
+• Video is complete but less polished. • Deck missing one or two elements. • Explains workflow but lacks depth.
+30 pts
+Approaching Expectations
+• Video unclear or off-length. • Deck incomplete. • Weak explanation of workflow.
+24 pts
+Below Expectations
+• No video submitted. • No deck submitted. • Work not explained.
+40 pts
+Total Points: 200
