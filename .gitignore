@@ -29,9 +29,13 @@ MANIFEST
 
 # IDE
 .vscode/
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
 .idea/
 *.swp
 *.swo
+*~
 .DS_Store
 
 # Project-specific
@@ -51,6 +55,11 @@ venv.bak/
 
 # OS
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
 *.log
 
@@ -65,7 +74,10 @@ ALIGNMENT_ASSESSMENT.md
 PROFESSOR_METHODOLOGY_ANALYSIS.md
 GITHUB_PUBLICATION_PLAN.md
 docs/EXECUTIVE_SUMMARY.md
-CLAUDE.md
-ALIGNMENT_ASSESSMENT.md
-PROFESSOR_METHODOLOGY_ANALYSIS.md
-GITHUB_PUBLICATION_PLAN.md
+
+# MCP Configuration (contains sensitive tokens)
+.vscode/mcp.json
+
+# Data files (uncomment if you don't want to track data)
+# data/raw/
+# data/processed/

@@ -7,9 +7,9 @@ Team 1 - Fall 2025
 
 In the Amazon marketplace, we want to understand what makes products successful. Lots of people study pricing and reviews, but not many look at how the product images affect sales.
 
-Our main question: Do image quality metrics (like visual clutter, colors, and backgrounds) affect sales performance along with the usual stuff like reviews and ratings?
+Our main question: Do image quality metrics (visual clutter, colors, and backgrounds) affect sales performance along with numerical features eg. reviews and ratings?
 
-We're trying to figure out what factors lead to better sales rankings so sellers can improve their product listings.
+We need to determine  what factors lead to better sales rankings so sellers can improve their product listings.
 
 ### Research Question Type: Predictive Analysis
 
@@ -21,13 +21,13 @@ We're trying to figure out what factors lead to better sales rankings so sellers
 
 ## Background
 
-Amazon has millions of products, so it's really competitive for sellers. The Best Seller Rank (BSR) tells you how well a product is selling - lower numbers mean better sales. If we can understand what drives BSR, it could help:
+Amazon has millions of products, so it is a competitive landscape for sellers. The Best Seller Rank (BSR) tells you how well a product is selling - lower numbers mean better sales. If we can understand what drives BSR, it could help:
 
 - Sellers make better product listings
 - Marketers create better images
 - Us learn how to build models for e-commerce data
 
-Product images are important because they're the first thing shoppers see. Our dataset has some cool computer vision metrics that measure image quality like:
+Product images are important because they're the first thing shoppers see. Our dataset has some computer vision metrics that measure image quality:
 
 - Visual clutter - how messy or clean the image looks
 - Background - if it uses white/neutral backgrounds (Amazon says this is good)
@@ -43,7 +43,7 @@ Product images are important because they're the first thing shoppers see. Our d
 
 ## Dataset
 
-We collected data from over 18,000 Amazon products using the Amazon SP-API and some custom scripts we wrote. Here's how we got the data:
+We collected data from over 18,000 Amazon products using the Amazon SP-API with custom scripts we wrote. Here's how we got the data:
 
 1. Used Amazon SP-API to get product info, prices, and sales data
 2. Got review counts and ratings
@@ -169,13 +169,6 @@ Phase 3 - Modeling (coming soon):
 - Fesal Fayed
 - Maksim Paklov
 
-## Timeline
-
-Week 1-2: Data collection and cleaning (done)
-Week 3-4: EDA (working on it)
-Week 5-6: Feature engineering and models
-Week 7-8: Model testing
-Week 9-10: Final report and presentation
 
 ## Initial Observations
 
