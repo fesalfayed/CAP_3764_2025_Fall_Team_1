@@ -11,6 +11,14 @@ Our main question: Do image quality metrics (like visual clutter, colors, and ba
 
 We're trying to figure out what factors lead to better sales rankings so sellers can improve their product listings.
 
+### Research Question Type: Predictive Analysis
+
+**Question**: Can we predict Amazon product sales performance (BSR) using image quality metrics combined with product features?
+
+**Approach**: Regression modeling (not causal inference)
+
+**Rationale**: This is an observational study using existing marketplace data. We're building predictive models to identify relationships between visual metrics and sales outcomes, but cannot establish causation without controlled experiments.
+
 ## Background
 
 Amazon has millions of products, so it's really competitive for sellers. The Best Seller Rank (BSR) tells you how well a product is selling - lower numbers mean better sales. If we can understand what drives BSR, it could help:
@@ -100,7 +108,7 @@ cd CAP_3764_2025_Fall_Team_1
 
 Create environment:
 ```
-conda env create -f environment.yml
+conda env create -f amazon_sales_env.yml
 conda activate amazon_sales_analysis
 ```
 

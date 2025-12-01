@@ -16,7 +16,7 @@ import pandas as pd
 import numpy as np
 
 
-def load_bsr_data(filepath):
+def load_bsr_data(filepath, verbose=False):
     """
     Load the BSR visual data CSV file
 
@@ -24,24 +24,31 @@ def load_bsr_data(filepath):
     -----------
     filepath : str
         Path to the bsr_visual_data.csv file
+    verbose : bool, default False
+        If True, print diagnostic information
 
     Returns:
     --------
     pd.DataFrame
-        Loaded dataframe with basic info displayed
+        Loaded dataframe
+
+    Examples:
+    ---------
+    >>> df = load_bsr_data('data/raw/bsr_visual_data.csv', verbose=True)
+    Dataset loaded successfully!
+    Shape: (18148, 34)
     """
-    # Read the CSV file
     df = pd.read_csv(filepath)
 
-    # Display basic info
-    print(f"Dataset loaded successfully!")
-    print(f"Shape: {df.shape}")
-    df.info()
+    if verbose:
+        print(f"Dataset loaded successfully!")
+        print(f"Shape: {df.shape}")
+        df.info()
 
     return df
 
 
-def clean_data(df):
+def clean_data(df, verbose=False):
     """
     Perform initial data cleaning
 
@@ -49,27 +56,43 @@ def clean_data(df):
     -----------
     df : pd.DataFrame
         Raw dataframe
+    verbose : bool, default False
+        If True, print cleaning statistics
 
     Returns:
     --------
     pd.DataFrame
         Cleaned dataframe
+    dict
+        Cleaning statistics including duplicates_removed and missing_values
+
+    Examples:
+    ---------
+    >>> df_clean, stats = clean_data(df, verbose=True)
+    Removed 1855 duplicate rows
+    Missing values: {...}
     """
-    # Create a copy to avoid modifying original
     df_clean = df.copy()
 
-    # Remove duplicate rows
     initial_rows = len(df_clean)
     df_clean = df_clean.drop_duplicates()
     duplicates_removed = initial_rows - len(df_clean)
-    print(f"Removed {duplicates_removed} duplicate rows")
 
-    # Display missing values
     missing = df_clean.isnull().sum()
-    print("\nMissing values per column:")
-    print(missing[missing > 0])
+    missing_values = missing[missing > 0].to_dict()
 
-    return df_clean
+    if verbose:
+        print(f"Removed {duplicates_removed} duplicate rows")
+        if missing_values:
+            print("\nMissing values per column:")
+            print(missing[missing > 0])
+
+    stats = {
+        'duplicates_removed': duplicates_removed,
+        'missing_values': missing_values
+    }
+
+    return df_clean, stats
 
 
 def get_numerical_columns(df):
