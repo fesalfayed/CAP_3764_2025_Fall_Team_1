@@ -89,12 +89,13 @@ CAP_3764_2025_Fall_Team_1/
 │   └── processed/
 ├── notebooks/
 │   ├── 01_data_collection_and_cleaning.ipynb
-│   └── 02_exploratory_data_analysis.ipynb
+│   ├── 02_exploratory_data_analysis.ipynb
+│   └── 03_modeling_pipeline.ipynb
 ├── src/
 │   ├── __init__.py
 │   └── data_collection.py
 ├── docs/
-├── environment.yml
+├── amazon_sales_env.yml
 └── README.md
 ```
 
@@ -132,11 +133,13 @@ Phase 2 - EDA:
 - Make correlation matrices
 - Create visualizations
 
-Phase 3 - Modeling (coming soon):
-- Make new features
-- Build regression models to predict BSR
-- Test the models (RMSE, MAE, R-squared)
-- Figure out what the results mean
+Phase 3 - Modeling (COMPLETE):
+- Engineered interaction features from image quality metrics
+- Built XGBoost regression model to predict BSR
+- Applied log transformation to handle extreme skewness in sales rank distribution
+- Implemented stratified train/test split and hyperparameter tuning
+- Evaluated model with comprehensive diagnostics and dual-scale metrics
+- Extracted business insights from feature importance analysis
 
 ## Our Hypotheses
 
@@ -170,15 +173,99 @@ Phase 3 - Modeling (coming soon):
 - Maksim Paklov
 
 
-## Initial Observations
+## Submission 2 Results (Phase 3 - Modeling)
 
-From what we've seen so far:
+### Model Performance
+
+We built an XGBoost regression model to predict Best Seller Rank using image quality metrics. The model achieved moderate predictive power:
+
+**Key Metrics:**
+- **R² = 0.0823** (explains 8.23% of variance in log-transformed BSR)
+- **MAE = 2,708 ranks** (typical prediction error on original scale)
+- **Median APE = 85.58%** (median percentage error)
+
+While the R² may seem modest, this quantifies an important finding: image quality alone has limited predictive power for sales success. Most variance in sales performance comes from factors we didn't measure, like product category dynamics, brand reputation, customer reviews, and competitive pricing.
+
+### Top Predictive Features
+
+Our feature importance analysis identified three key visual metrics:
+
+1. **image_count (14.06% importance)** - Number of product photos
+   - Products with more images (18-27 photos) show systematically different BSR patterns than those with fewer (1-5 photos)
+   - Takeaway: Comprehensive visual documentation matters - sellers should maximize image slots with multiple angles, lifestyle shots, and detail close-ups
+
+2. **clean_sharp (9.73% importance)** - Professional photography quality
+   - Interaction of white/neutral backgrounds with sharp, high-resolution images
+   - Takeaway: Investment in professional lighting and high-resolution cameras pays off
+
+3. **color_balance (9.63% importance)** - Visual complexity
+   - Moderate color variety without single-color dominance
+   - Takeaway: Balance visual appeal - avoid both extreme minimalism and chaotic clutter
+
+### What This Means
+
+The model's limited explanatory power (8.2% R²) reveals that **image quality changes alone won't reliably turn a low-seller into a best-seller**. With a median error of 85%, predictions are too noisy for precise forecasting. However, the directional relationships are clear: more images, professional presentation, and balanced visual complexity are associated with better sales ranks.
+
+The remaining 92% of variance likely comes from unmeasured factors:
+- Product category and niche dynamics
+- Brand strength and reputation
+- Customer review quality and quantity
+- Competitive pricing strategies
+- Seasonal demand fluctuations
+
+### Technical Approach
+
+**Data Preparation:**
+- Applied log transformation to Best Seller Rank (reduced skewness from 17.66 to 1.07)
+- Stratified train/test split (80/20) using quantile-based bins
+- Engineered three interaction features based on business hypotheses
+
+**Model Training:**
+- XGBoost gradient boosting regressor
+- RandomizedSearchCV hyperparameter tuning (50 iterations, 5-fold cross-validation)
+- Optimized learning rate, tree depth, number of estimators, and regularization
+
+**Evaluation:**
+- Dual-scale metrics (log scale for optimization, original scale for interpretation)
+- Overfitting analysis with train-test gap checks
+- Learning curves for bias-variance assessment
+- Regression diagnostics: residual plots, Q-Q plots, scale-location plots
+- Feature importance analysis
+
+### Recommendations
+
+**For Amazon Sellers:**
+- Maximize image count - use all available image slots
+- Invest in professional photography with clean backgrounds and sharp focus
+- Balance visual complexity - showcase features without overwhelming viewers
+- Remember: Image quality is ONE component of success, not a silver bullet
+
+**Limitations:**
+- This is an observational study - we can't establish causation
+- Review metrics were 100% missing from our dataset
+- Cross-category model may mask niche-specific patterns
+- Temporal effects and seasonal trends not captured
+
+### Future Work
+
+To improve prediction accuracy and understanding:
+1. Build category-specific models (Electronics vs Fashion vs Home Goods)
+2. Incorporate review data when available
+3. Conduct A/B testing with sellers to establish causal relationships
+4. Experiment with deep learning image features (CNNs)
+5. Collect longitudinal data for time series analysis
+
+---
+
+## Initial Observations (Phase 1-2)
+
+From our exploratory analysis:
 - The dataset has lots of different product categories with different sales levels
 - Image quality varies a lot between products
 - We have both visual and text features which is good for analysis
 - BSR ranges from very popular to very unpopular products
-
-We'll get more detailed insights as we do the full EDA.
+- Strong correlation between image count and sales performance
+- Professional image quality (clean backgrounds, sharp edges) associated with better ranks
 
 ## References
 
